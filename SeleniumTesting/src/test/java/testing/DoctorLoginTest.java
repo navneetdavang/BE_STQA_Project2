@@ -51,6 +51,31 @@ public class DoctorLoginTest {
 	}
 	
 	
+	@Test(description="If user doesn't exists")
+	public void checkUserLoginStatusTest() {
+		
+		driver.manage().window().maximize();
+		driver.get(baseUrl);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		driver.findElement(By.id("doctor_login_btn")).click();
+		
+		// email field
+		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("daklfj@gmail.com");
+		//password field
+		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("123456");
+		
+	
+		driver.findElement(By.xpath("//*[@id=\"doc_login\"]")).click();
+		
+		String actualString = driver.findElement(By.xpath("//*[@id=\"popup\"]")).getText().toString();
+		String expectedString = "Username/Password doesn't exists";
+		
+		Assert.assertEquals(actualString, expectedString);
+
+	}
+	
+	
 	
 	
 
