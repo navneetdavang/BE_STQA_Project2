@@ -30,7 +30,7 @@ public class PatientLoginTest {
 	@Test
 	public void checkPatientLogin() {
 		System.out.println(" Checked Patient ");
-  }
+	}
 
 	
 }
