@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverManager {
+	
+	// Base Url
+	private static final String BASE_URL = "http://localhost/Hospital-Appointment-Booking-System/";
 
 	// path to the location of the drivers
 	private static final String DRIVER_PATH = "G:\\webdrivers\\chromedriver_95.exe";
@@ -24,7 +27,10 @@ public class DriverManager {
 		return this.webDriver;
 	}
 	
-	
+	public static String getBaseUrl() {
+		return BASE_URL;
+	}
+
 	public static String getDriverPath() {
 		return DRIVER_PATH;
 	}
