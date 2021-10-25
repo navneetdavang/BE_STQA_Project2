@@ -9,7 +9,7 @@ public class PatientLoginTest {
 	
 	@Test
 	public void checkPatientLogin() {
-		
+		// check empty values
 	}
 
 	
