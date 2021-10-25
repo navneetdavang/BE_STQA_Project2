@@ -22,7 +22,7 @@ public class DoctorLoginTest {
 	@BeforeMethod
 	public void initTest() {
 		System.setProperty(DriverManager.getDriverName(), DriverManager.getDriverPath());
-		driver = new DriverManager().getWebDriver();
+		driver = new DriverManager().getWebDriver(); 
 	}
 
 	@AfterMethod
