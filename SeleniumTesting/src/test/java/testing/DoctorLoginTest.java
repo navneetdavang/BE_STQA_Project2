@@ -15,7 +15,7 @@ import drivers.DriverManager;
 
 public class DoctorLoginTest {
 	
-	String baseUrl = "http://localhost/Hospital-Appointment-Booking-System/";
+	String baseUrl = DriverManager.getBaseUrl();
 	WebDriver driver;
 	
 	
