@@ -61,9 +61,9 @@ public class DoctorLoginTest {
 		driver.findElement(By.id("doctor_login_btn")).click();
 		
 		// email field
-		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("daklfj@gmail.com");
+		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("nalsdjlv@gmail.com");
 		//password field
-		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("123456");
+		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("sknklkd");
 		
 	
 		driver.findElement(By.xpath("//*[@id=\"doc_login\"]")).click();
@@ -72,10 +72,29 @@ public class DoctorLoginTest {
 		String expectedString = "Username/Password doesn't exists";
 		
 		Assert.assertEquals(actualString, expectedString);
-
 	}
 	
+	@Test(description="If user exists")
+	public void checkUserLoginStatusTest2() {
+		driver.manage().window().maximize();
+		driver.get(baseUrl);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		driver.findElement(By.id("doctor_login_btn")).click();
+		
+		// email field
+		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("nav@gmail.com");
+		//password field
+		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("nav123");
+		
 	
+		driver.findElement(By.xpath("//*[@id=\"doc_login\"]")).click();
+		
+		String actualUrl = "http://localhost:8080/Hospital-Appointment-Booking-System/Doctor_dashboard.php";
+		String expectedUrl = driver.getCurrentUrl();
+		
+		Assert.assertEquals(actualUrl, expectedUrl);
+	}
 	
 	
 
