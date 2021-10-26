@@ -79,8 +79,8 @@ public class PatientLoginTest {
 		
 		driver.findElement(By.xpath("//*[@id=\"pat_login_btn\"]")).click();
 		
-		String actualUrl = "http://localhost:8080/Hospital-Appointment-Booking-System/Patient_dashboard.php";
-		String expectedUrl = driver.getCurrentUrl();
+		String actualUrl = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/h6")).getText().toString();
+		String expectedUrl = "dhc@gmail.com";
 		
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
