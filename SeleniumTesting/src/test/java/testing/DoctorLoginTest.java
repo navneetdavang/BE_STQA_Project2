@@ -85,13 +85,14 @@ public class DoctorLoginTest {
 		// email field
 		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("nav@gmail.com");
 		//password field
-		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("nav123");
+		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("nav@1234");		// changed the password
 		
 	
 		driver.findElement(By.xpath("//*[@id=\"doc_login\"]")).click();
 		
-		String actualUrl = "http://localhost:8080/Hospital-Appointment-Booking-System/Doctor_dashboard.php";
-		String expectedUrl = driver.getCurrentUrl();
+		// changed the xpath 
+		String actualUrl = driver.findElement(By.xpath("//*[@id=\"doc_email\"]")).getText().toString();
+		String expectedUrl = "nav@gmail.com";
 		
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
