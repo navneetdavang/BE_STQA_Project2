@@ -75,11 +75,12 @@ public class PatientLoginTest {
 		// email field
 		driver.findElement(By.xpath("//*[@id=\"email_pat\"]")).sendKeys("dhc@gmail.com");
 		//password field
-		driver.findElement(By.xpath("//*[@id=\"password_pat\"]")).sendKeys("dhc123");
+		driver.findElement(By.xpath("//*[@id=\"password_pat\"]")).sendKeys("dhc@1234");			// changed the password
 		
 		driver.findElement(By.xpath("//*[@id=\"pat_login_btn\"]")).click();
 		
-		String actualUrl = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/h6")).getText().toString();
+		// changed the xpath 
+		String actualUrl = driver.findElement(By.xpath("//*[@id=\"pat_email\"]")).getText().toString();
 		String expectedUrl = "dhc@gmail.com";
 		
 		Assert.assertEquals(actualUrl, expectedUrl);
