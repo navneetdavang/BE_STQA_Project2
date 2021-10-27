@@ -110,6 +110,6 @@ public class PatientLoginTest {
 		Assert.assertEquals(currPage, expectedPage);
 		
 	}
-	
+
 	
 }
