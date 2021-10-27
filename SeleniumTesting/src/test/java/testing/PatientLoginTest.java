@@ -1,7 +1,6 @@
 package testing;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -112,34 +111,5 @@ public class PatientLoginTest {
 		
 	}
 	
-	@Test(description = "Is booking successful")
-	
-	public void checkBookingSuccess() {
-		driver.manage().window().maximize();
-		driver.get(baseUrl);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-driver.findElement(By.id("patient_login_btn")).click();
-		
-		// email field
-		driver.findElement(By.xpath("//*[@id=\"email_pat\"]")).sendKeys("dhc@gmail.com");
-		//password field
-		driver.findElement(By.xpath("//*[@id=\"password_pat\"]")).sendKeys("dhc@1234");			
-		
-		driver.findElement(By.xpath("//*[@id=\"pat_login_btn\"]")).click();
-		
-		driver.findElement(By.xpath("//*[@id=\"book\"]")).click();
-		
-		driver.findElement(By.xpath("//*[@id=\"date\"]")).sendKeys("27-10-2021");
-		driver.findElement(By.xpath("//*[@id=\"time\"]")).sendKeys("12:00");
-		
-		driver.findElement(By.xpath("//*[@id=\"book-btn\"]")).click();
-		
-		String actualAlert = driver.findElement(By.xpath("//*[@id=\"popup\"]")).getText().toString();
-		String expectedAlert = "Appointment booked successfully!";
-		
-		Assert.assertEquals(actualAlert,expectedAlert);
-		
-	}
 	
 }
