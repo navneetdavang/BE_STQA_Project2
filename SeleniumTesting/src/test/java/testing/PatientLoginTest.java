@@ -85,4 +85,31 @@ public class PatientLoginTest {
 		
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
+	
+	@Test(description = "Is logout Successful")
+	public void checkLogoutSuccess() 
+	{
+		driver.manage().window().maximize();
+		driver.get(baseUrl);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		driver.findElement(By.id("patient_login_btn")).click();
+		
+		// email field
+		driver.findElement(By.xpath("//*[@id=\"email_pat\"]")).sendKeys("dhc@gmail.com");
+		//password field
+		driver.findElement(By.xpath("//*[@id=\"password_pat\"]")).sendKeys("dhc@1234");			
+		
+		driver.findElement(By.xpath("//*[@id=\"pat_login_btn\"]")).click();
+		
+		
+		driver.findElement(By.xpath("//*[@id=\"pat_logout\"]")).click(); 
+		
+		String currPage = driver.getCurrentUrl(); 
+		String expectedPage = baseUrl+"Index.php"; 
+		
+		Assert.assertEquals(currPage, expectedPage);
+		
+	}
+	
 }
