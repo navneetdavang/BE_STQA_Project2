@@ -1,5 +1,7 @@
 package testing;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,7 +46,12 @@ public class BookAppointmentTest {
 		
 		driver.findElement(By.xpath("//*[@id=\"book\"]")).click();
 		
-		driver.findElement(By.xpath("//*[@id=\"date\"]")).sendKeys("27-10-2021");
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+	    Date date = new Date();  
+	    System.out.println(formatter.format(date));  
+	    String todayDate = formatter.format(date).toString();
+		driver.findElement(By.xpath("//*[@id=\"date\"]")).sendKeys(todayDate);
 		driver.findElement(By.xpath("//*[@id=\"time\"]")).sendKeys("12:00");
 		
 		driver.findElement(By.xpath("//*[@id=\"book-btn\"]")).click();
