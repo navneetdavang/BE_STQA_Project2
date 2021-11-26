@@ -46,7 +46,7 @@ public class BookAppointmentTest {
 		
 		driver.findElement(By.xpath("//*[@id=\"book\"]")).click();
 		
-		
+		//date format changed here 
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
 	    Date date = new Date();  
 	    System.out.println(formatter.format(date));  
