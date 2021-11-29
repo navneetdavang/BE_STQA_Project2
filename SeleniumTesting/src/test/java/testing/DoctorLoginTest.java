@@ -33,7 +33,7 @@ public class DoctorLoginTest {
 	
 	
 	@Test(description="If all fields are empty")
-	public void emptyFieldLoginTest() {
+	public void emptyFieldLoginTest() throws InterruptedException {
 		
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
@@ -45,14 +45,14 @@ public class DoctorLoginTest {
 		
 		String actualString = driver.findElement(By.xpath("//*[@id=\"popup\"]")).getText().toString();
 		String expectedString = "Please Fill all the fields....";
-		
+		Thread.sleep(2000);
 		Assert.assertEquals(actualString, expectedString);
 
 	}
 	
 	
 	@Test(description="If user doesn't exists")
-	public void checkUserLoginStatusTest() {
+	public void checkUserLoginStatusTest() throws InterruptedException {
 		
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
@@ -62,20 +62,23 @@ public class DoctorLoginTest {
 		
 		// email field
 		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("nalsdjlv@gmail.com");
+		Thread.sleep(2000);
 		//password field
 		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("sknklkd");
+		Thread.sleep(2000);
 		
 	
 		driver.findElement(By.xpath("//*[@id=\"doc_login\"]")).click();
 		
 		String actualString = driver.findElement(By.xpath("//*[@id=\"popup\"]")).getText().toString();
 		String expectedString = "Username/Password doesn't exists";
+		Thread.sleep(2000);
 		
 		Assert.assertEquals(actualString, expectedString);
 	}
 	
 	@Test(description="If user exists")
-	public void checkUserLoginStatusTest2() {
+	public void checkUserLoginStatusTest2() throws InterruptedException {
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -84,15 +87,17 @@ public class DoctorLoginTest {
 		
 		// email field
 		driver.findElement(By.xpath("//*[@id=\"doc_email_id\"]")).sendKeys("nav@gmail.com");
+		Thread.sleep(2000);
 		//password field
 		driver.findElement(By.xpath("//*[@id=\"doc_password\"]")).sendKeys("nav@1234");		// changed the password
-		
+		Thread.sleep(2000);
 	
 		driver.findElement(By.xpath("//*[@id=\"doc_login\"]")).click();
 		
 		// changed the xpath 
 		String actualUrl = driver.findElement(By.xpath("//*[@id=\"doc_email\"]")).getText().toString();
 		String expectedUrl = "nav@gmail.com";
+		Thread.sleep(2000);
 		
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
